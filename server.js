@@ -6,6 +6,7 @@ import cookieParser from "cookie-parser";
 
 import users from "./routes/users.js";
 import season1 from "./routes/season1.js";
+//import season2 from "./routes/season2.js";
 import season3 from "./routes/season3.js";
 
 dotenv.config();
@@ -30,6 +31,7 @@ app.get("/", (req, res) => {
 
 app.use("/api/users", users);
 app.use("/api/season1", season1);
+//app.use("/api/season2", season2);
 app.use("/api/season3", season3);
  
 app.listen(PORT, () => {

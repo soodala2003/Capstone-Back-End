@@ -1,12 +1,12 @@
 import mongoose from "mongoose";
 
-const reviewsSchema = new mongoose.Schema(
+const reviewSchema = new mongoose.Schema(
   {
     episode: { type: String },
     title: { type: String },
     user: { type: String },
     content: { type: String },
-    created: { type: String },
+    published: { type: String },
     id: { type: Number },
     name: { type: String },
   }, {
@@ -14,4 +14,4 @@ const reviewsSchema = new mongoose.Schema(
   }
 );
  
-export default mongoose.model("Reviews", reviewsSchema);
+export default mongoose.model("Review", reviewSchema);
