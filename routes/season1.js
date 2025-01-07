@@ -35,34 +35,4 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-// Get all reviews of episode1 in season1
-router.get("/episodes/reviews", async (req, res) => {
-  try {
-    const reviews = await Review.find({}).sort({ _id: -1 });
-    res.status(200).json({ success: true,  data: reviews });
-  } catch (error) {
-    console.log("Error in fetching reviews: ", error.message);
-    res.status(500).json({ success: false, message: "Server Error" });
-  }
-});
-
-// Add a new review 
-router.post("/episodes/reviews", async (req, res) => {
-  const review = req.body;
-  
-  if (!review.title || !review.user || !review.content || !review.published) {
-    return res.status(400).json({ success: false, message: "Please provide fields of Title, User, Review, and Published Date." });
-  }
-  
-  const newReview = new Review(review);
-
-  try {
-    await newReview.save();
-    res.status(201).json({ success: true,  data: newReview });
-  } catch (error) {
-    console.log("Error in creating review: ", error.message);
-    res.status(500).json({ success: false, message: "Server Error" });
-  }
-});
-
 export default router;
