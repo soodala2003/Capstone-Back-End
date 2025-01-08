@@ -5,7 +5,11 @@ const season1Schema = new mongoose.Schema(
     name: { type: String },
     air_date: { type: String },
     episode: { type: String },
-    characters: { type: Array },
+    characters: { 
+      name: { type: String },
+      image: { type: String },
+      id: { type: Number }
+    },
     url: { type: String },
     created: { type: String },
     num: { type: Number},

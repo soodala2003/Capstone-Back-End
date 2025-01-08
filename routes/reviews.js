@@ -20,7 +20,7 @@ router.get("/", async (req, res) => {
     const review = req.body;
     
     if (!review.title || !review.user || !review.content || !review.published) {
-      return res.status(400).json({ success: false, message: "Please provide fields of Title, User, Review, and Published Date." });
+      return res.status(400).json({ success: false, message: "Please fill in all fields (title, user, review, and published)." });
     }
     
     const newReview = new Review(review);

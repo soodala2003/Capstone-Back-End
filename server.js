@@ -30,6 +30,7 @@ app.get("/", (req, res) => {
   res.send("Rick and Morty Series Capstone Back-End Deployment")
 }); 
 
+//app.use("/api/users", users);
 app.use("/api/users", users);
 app.use("/api/season1", season1);
 app.use("/api/season2", season2);
