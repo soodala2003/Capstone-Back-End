@@ -7,7 +7,7 @@ import bcrypt from "bcrypt";
 
 const router = express.Router();
 
-/*const protect = async (req, res, next) => {
+const protect = async (req, res, next) => {
   let token;
   if (
     req.headers.authorization &&
@@ -33,7 +33,7 @@ const router = express.Router();
   if (!token) {
     res.status(401).json({ success: false, message: "Not authorized, no token" });
   }
-}; */
+}; 
 
 // Generate JWT
 const generateToken = (id) => {
@@ -55,12 +55,12 @@ router.get(`/`, async (req, res) => {
 // @desc    Get a user data
 // @route   GET /api/users/me
 // @access  Private
-/* router.get(`/me`, protect, async (req, res) => {
+router.get(`/me`, protect, async (req, res) => {
   //res.status(200).json(req.user);
   const { id, email } = await User.findById(req.user.id);
 
   res.status(200).json({ id, email });
-}); */
+}); 
 
 
 // @desc    Signup a new user
