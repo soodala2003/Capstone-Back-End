@@ -1,16 +1,13 @@
 import express from "express";
-//import dotenv from "dotenv";
-//import mongoose from "mongoose";
-
 import User from "../models/User.js";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
-
+//import dotenv from "dotenv";
 //dotenv.config(); 
-//console.log(process.env.ACCESS_TOKEN_SECRE="1234ABC");
+
 const router = express.Router();
 
-const protect = async (req, res, next) => {
+c/* onst protect = async (req, res, next) => {
   let token;
   if (
     req.headers.authorization &&
@@ -30,15 +27,13 @@ const protect = async (req, res, next) => {
     } catch (error) {
       console.log(error);
       res.status(401).json({ success: false, message: "Not authorized" });
-      //throw new Error('Not authorized')
     }
   }
 
   if (!token) {
     res.status(401).json({ success: false, message: "Not authorized, no token" });
-    //throw new Error('Not authorized, no token')
   }
-};
+}; */
 
 // Generate JWT
 const generateToken = (id) => {
@@ -60,12 +55,12 @@ router.get(`/`, async (req, res) => {
 // @desc    Get a user data
 // @route   GET /api/users/me
 // @access  Private
-router.get(`/me`, protect, async (req, res) => {
+/* router.get(`/me`, protect, async (req, res) => {
   //res.status(200).json(req.user);
   const { id, email } = await User.findById(req.user.id);
 
   res.status(200).json({ id, email });
-});
+}); */
 
 
 // @desc    Signup a new user
@@ -76,7 +71,6 @@ router.post('/', async (req, res) => {
   
   if (!email || !password) {
     res.status(400).json({ success: false, message: "All fields must be filled" });
-    //throw new Error('Please add all fields');
   }
 
   // Check if user exists
@@ -84,7 +78,6 @@ router.post('/', async (req, res) => {
 
   if (userExists) {
     res.status(400).json({ success: false, message: "User already exists" });
-    //throw new Error('User already exists');
   }
   
   const salt = await bcrypt.genSalt(10);
@@ -99,7 +92,6 @@ router.post('/', async (req, res) => {
     })
   } else {
     res.status(400).json({ success: false, message: "Invalid user data" });
-    //throw new Error('Invalid user data');
   }
 });
 
@@ -119,19 +111,11 @@ router.post('/auth', async (req, res) => {
     });
   } else {
     res.status(400).json({ success: false, message: "Invalid credentials" });
-    //throw new Error('Invalid credentials')
   }
 });
 
-// @desc    Logout a user
-// @route   POST /api/users/logout
-/* router.post('/logout', async (req, res) => {
-
-
-}); */
-
 export default router;
-//module.exports = router
+
 
 
 
