@@ -7,7 +7,7 @@ import bcrypt from "bcrypt";
 
 const router = express.Router();
 
-c/* onst protect = async (req, res, next) => {
+/*const protect = async (req, res, next) => {
   let token;
   if (
     req.headers.authorization &&
