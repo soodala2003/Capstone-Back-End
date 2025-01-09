@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
-import bcrypt from "bcrypt";
-import validator from "validator";
+//import bcrypt from "bcrypt";
+//import validator from "validator";
 
 const userSchema = new mongoose.Schema(
   {
@@ -14,12 +14,12 @@ const userSchema = new mongoose.Schema(
       required: true
     }
   }/* , {
-    timestamps: true // createdAt, updatedAt
-  } */
+    timestamps: true 
+  }  */
 );
 
 // static signup method
-userSchema.statics.signup = async function(email, password) {
+/* userSchema.statics.signup = async function(email, password) {
   // validation
   if (!email || !password) {
     throw Error("All fields must be filled");
@@ -27,9 +27,9 @@ userSchema.statics.signup = async function(email, password) {
   if (!validator.isEmail(email)) {
     throw Error("Email not valid");
   }
-  /* if (!validator.isStrongPassword(password)) {
+  if (!validator.isStrongPassword(password)) {
     throw Error("Password not strong enough");
-  } */
+  } 
 
   const exists = await this.findOne({ email });
   if (exists) {
@@ -60,7 +60,7 @@ userSchema.statics.login = async function(email, password) {
   }
 
   return user;
-};
+}; */
 
 export default mongoose.model("User", userSchema);
 //module.exports = mongoose.model("User", userSchema);
