@@ -13,9 +13,7 @@ const season2Schema = new mongoose.Schema(
     url: { type: String },
     created: { type: String },
     num: { type: Number},
-  }, {
-    timestamps: true // createdAt, updatedAt
-  }
+  }, 
 );
  
 export default mongoose.model("Season2", season2Schema);

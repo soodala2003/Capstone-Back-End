@@ -6,9 +6,7 @@ const reviewSchema = new mongoose.Schema(
     user: { type: String },
     content: { type: String },
     published: { type: String },
-  }, {
-    timestamps: true // createdAt, updatedAt
-  }
+  }, 
 );
  
 export default mongoose.model("Review", reviewSchema);

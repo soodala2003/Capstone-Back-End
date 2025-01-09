@@ -104,8 +104,8 @@ router.post('/', async (req, res) => {
 });
 
 // @desc    Login a user
-// @route   POST /api/users/login
-router.post('/login', async (req, res) => {
+// @route   POST /api/users/auth
+router.post('/auth', async (req, res) => {
   const { email, password } = req.body;
 
   // Check for user email
